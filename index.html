@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Анкета</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5e0e8 0%, #d9c8d4 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #fff5f8;
+            padding: 35px 40px;
+            border-radius: 28px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0dbe3;
+        }
+
+        h1 {
+            text-align: center;
+            color: #a55a7a;
+            font-weight: 500;
+            margin-bottom: 25px;
+            font-size: 28px;
+        }
+
+        label {
+            display: block;
+            margin: 18px 0 6px;
+            font-weight: 500;
+            color: #6b4a5a;
+            font-size: 14px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #e2cdd7;
+            border-radius: 18px;
+            font-size: 14px;
+            background: #ffffff;
+        }
+
+        input[type="radio"] {
+            width: auto;
+            margin-right: 8px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        select[multiple] {
+            padding: 10px;
+            border-radius: 20px;
+            min-height: 120px;
+        }
+
+        button {
+            background: #c2819b;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 28px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background: #a8627e;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            font-weight: normal;
+        }
+
+        .checkbox-label input {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Анкета</h1>
+    <form action="process.php" method="POST">
+        <label>ФИО:</label>
+        <input type="text" name="full_name" placeholder="Иванова Анна Сергеевна" required>
+
+        <label>Телефон:</label>
+        <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" placeholder="anna@example.com" required>
+
+        <label>Дата рождения:</label>
+        <input type="date" name="birth_date" required>
+
+        <label>Пол:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="gender" value="male"> Мужской</label>
+            <label><input type="radio" name="gender" value="female"> Женский</label>
+            <label><input type="radio" name="gender" value="other"> Другой</label>
+        </div>
+
+        <label>Любимые языки программирования:</label>
+        <select name="languages[]" multiple required>
+            <option value="Pascal">Pascal</option><option value="C">C</option>
+            <option value="C++">C++</option><option value="JavaScript">JavaScript</option>
+            <option value="PHP">PHP</option><option value="Python">Python</option>
+            <option value="Java">Java</option><option value="Haskell">Haskell</option>
+            <option value="Clojure">Clojure</option><option value="Prolog">Prolog</option>
+            <option value="Scala">Scala</option><option value="Go">Go</option>
+        </select>
+
+        <label>Биография:</label>
+        <textarea name="biography" rows="4" placeholder="Немного о себе..."></textarea>
+
+        <label class="checkbox-label">
+            <input type="checkbox" name="agreed" required> С контрактом ознакомлен(а)
+        </label>
+
+        <button type="submit">💾 Сохранить</button>
+    </form>
+</div>
+</body>
+</html>
